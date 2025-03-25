@@ -243,7 +243,12 @@ export default function App() {
     <div className="wrapper">
       <div
         className="main-container"
-        onMouseDown={(e) => handleMouseDown(e.target.dataset.key)}
+        onMouseDown={(e) => {
+          const keyName = e.target.dataset.note;
+          if (keyName) {
+            handleMouseDown(keyName);
+          }
+        }}
       >
         <Settings {...propsBundle} />
         <Keys showKeys={showKeys} synthKeys={synthKeys} />
